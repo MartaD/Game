@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="game_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" id="mKB-Gl-JR5">
+                            <items>
+                                <button width="40" height="40" alignment="left" backgroundImage="rock" id="IZw-cs-grH">
+                                    <connections>
+                                        <action selector="chooseRock" destination="AgC-eL-Hgc" id="Mww-SB-HMp"/>
+                                    </connections>
+                                </button>
+                                <button width="40" height="40" alignment="center" backgroundImage="paper" id="PjP-0k-0UO">
+                                    <connections>
+                                        <action selector="choosePaper" destination="AgC-eL-Hgc" id="S2Y-h4-sMZ"/>
+                                    </connections>
+                                </button>
+                                <button width="40" height="40" alignment="right" backgroundImage="scissors" id="Kuk-er-PB7">
+                                    <connections>
+                                        <action selector="chooseScissors" destination="AgC-eL-Hgc" id="Xoc-to-UKZ"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <label alignment="center" text="VS" id="454-5f-z78">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <imageView width="40" height="40" alignment="center" id="7VJ-fu-FEr"/>
+                        <label width="136" alignment="center" text="Tap Icon to start!" textAlignment="center" id="dJA-IL-KFj">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <group width="1" alignment="left" id="jrB-hN-rvQ">
+                            <items>
+                                <label alignment="left" text="Score:" id="vsO-kA-23j">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <label width="46.5" alignment="left" text="0" id="QAY-LF-B5g">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <button width="41" height="18.5" alignment="right" title="Info" id="zIW-9r-Iy4">
+                                    <connections>
+                                        <action selector="showGameStat" destination="AgC-eL-Hgc" id="X0J-d5-FWB"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="RpM-5i-Paa">
+                        <items>
+                            <menuItem title="Reset" icon="repeat" id="x7m-d4-9H3">
+                                <connections>
+                                    <action selector="resetGame" destination="AgC-eL-Hgc" id="8Kh-zT-MMm"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="oponentSymbol" destination="7VJ-fu-FEr" id="IQf-Y8-APW"/>
+                        <outlet property="resultLabel" destination="dJA-IL-KFj" id="JbG-q8-6k7"/>
+                        <outlet property="scoreLabel" destination="QAY-LF-B5g" id="idl-L0-hLQ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="327.5"/>
+        </scene>
+        <!--Game Stats-->
+        <scene sceneID="sJ3-XB-YbX">
+            <objects>
+                <controller identifier="Game Stats" id="iuT-8k-1y6" customClass="GameStatController" customModule="game_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Current Score:" id="Aal-UK-747"/>
+                        <label width="136" alignment="right" text="0" textAlignment="right" id="dmT-PT-nE7"/>
+                        <separator alignment="left" id="8t1-lJ-1hR"/>
+                        <label alignment="left" text="HighScore:" id="VGL-4G-i0A"/>
+                        <label width="136" alignment="left" text="0" textAlignment="right" id="93q-ZT-9B1"/>
+                        <separator alignment="left" id="9jt-cF-epe"/>
+                        <label alignment="left" text="Games Played:" id="BiR-Y3-fg2"/>
+                        <label width="136" alignment="left" text="0" textAlignment="right" id="Y9R-xz-vQb"/>
+                    </items>
+                    <connections>
+                        <outlet property="currentScoreLabel" destination="dmT-PT-nE7" id="RkS-lh-xd2"/>
+                        <outlet property="gamesPlayedLabel" destination="Y9R-xz-vQb" id="1XR-Ov-MA8"/>
+                        <outlet property="highScoreLabel" destination="93q-ZT-9B1" id="SPN-3a-VdZ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="449" y="327"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sashColor" red="1" green="0.40427105250000001" blue="0.23256831310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </notificationCategory>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="game_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="88J-vb-qWq"/>
+                        <label width="136" alignment="left" text="Last HighScore: 0" id="g4n-RG-rQo">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="alertLabel" destination="88J-vb-qWq" id="A8Y-3c-fNl"/>
+                        <outlet property="highScoreLabel" destination="g4n-RG-rQo" id="O1y-uo-ugr"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
